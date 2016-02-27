@@ -36,10 +36,6 @@ var config = {
 	htmlmin: {
 		collapseWhitespace: true
 	},
-	htmlReplace: {
-		'css': 	(productionMode) ? 'css/main.min.css' 	: 'css/main.css',
-		'js' : 	(productionMode) ? 'js/main.min.js' 	: 'js/main.js'
-	},
 	autoprefixer: {
 		browsers: ['last 2 versions']
 	},
@@ -49,6 +45,8 @@ var config = {
 		optimizationLevel: 3
 	},
 	browserSync: {
+		// reduce start-up time when offline
+		online: false,
 		// create static file server and serve files from baseDir
 		server: {
 			baseDir: './dist'
@@ -77,7 +75,6 @@ gulp.task('html', ['clean'], function() {
 	return gulp.src(htmlDev)
 		.pipe((productionMode) ? gutil.noop() : plugins.changed(htmlDist))
 		.pipe((productionMode) ? plugins.htmlmin(config.htmlmin) : gutil.noop())
-		.pipe(plugins.htmlReplace(config.htmlReplace))
         .pipe(gulp.dest(htmlDist));
 });
 
@@ -87,7 +84,6 @@ gulp.task('css', ['clean'], function() {
 		.pipe((productionMode) ? gutil.noop() : plugins.changed(cssDist))
 		.pipe(plugins.autoprefixer(config.autoprefixer))
         .pipe((productionMode) ? plugins.cssnano() : gutil.noop())
-		.pipe((productionMode) ? plugins.rename('main.min.css') : gutil.noop())
         .pipe(gulp.dest(cssDist));
 });
 
@@ -98,7 +94,6 @@ gulp.task('js', ['clean'], function() {
 		.pipe((productionMode) ? gutil.noop() : plugins.changed(jsDist))
 		.pipe((config.useBabel) ? plugins.babel(config.babel) : gutil.noop())
 		.pipe((productionMode) ? plugins.uglify() : gutil.noop())
-		.pipe((productionMode) ? plugins.rename('main.min.js') : gutil.noop())
 		.pipe(gulp.dest(jsDist));
 });
 

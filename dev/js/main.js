@@ -1,13 +1,9 @@
-(function (R, angular) {
+(function (angular) {
 	'use strict';
 
 	const app = angular.module('app', []);
 
-	/**
-	 *
-	 *
-	 * @return object with `get()` method
-	 */
+
 	app.factory('position', function () {
 		return {
 			/**
@@ -30,13 +26,13 @@
 		};
 	});
 
-	/**
-	 * Calls to Open Weather API with given coords.
-	 * `coords` is an object with `latitude` and `longitude` properties.
-	 *
-	 * @return Angular promise
-	 */
 	app.factory('weather', ['$http', function ($http) {
+		/**
+		 * Calls to Open Weather API with given coords.
+		 * `coords` is an object with `latitude` and `longitude` properties.
+		 *
+		 * @return Angular promise
+		 */
 		return {
 			get(coords) {
 				return $http({
@@ -54,6 +50,7 @@
 	app.controller('MainCtrl', ['$scope', 'position', 'weather', function ($scope, position, weather) {
 		let coords;
 		$scope.info;
+		$scope.message = 'Loading...';
 
 		position.get(position => {
 			coords = position.coords;
@@ -83,5 +80,5 @@
 	// });
 
 
-}(R, angular));
-/*global R, angular*/
+}(angular));
+/*global angular*/

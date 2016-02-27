@@ -3,8 +3,20 @@
 
 	const app = angular.module('app', []);
 
+	/**
+	 *
+	 *
+	 * @return object with `get()` method
+	 */
 	app.factory('position', function () {
 		return {
+			/**
+			 * Ask user for his position and returns it if access granted.
+			 * Uses JavaScript Geolocation API.
+			 * Doesn't return, takes callback, which is run with position
+			 * object.
+			 * https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
+			 */
 			get(callback) {
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(position => {
@@ -18,6 +30,12 @@
 		};
 	});
 
+	/**
+	 * Calls to Open Weather API with given coords.
+	 * `coords` is an object with `latitude` and `longitude` properties.
+	 *
+	 * @return Angular promise
+	 */
 	app.factory('weather', ['$http', function ($http) {
 		return {
 			get(coords) {
@@ -49,7 +67,7 @@
 				});
 		});
 	}]);
-	// 
+	//
 	// app.directive('superButton', function () {
 	// 	return {
 	// 		restrict: 'A',

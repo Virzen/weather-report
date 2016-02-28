@@ -33,6 +33,7 @@ body {
 	margin-top: 0.5rem;
 	border: 1px solid #0078AC;
 	border-radius: 0.5em;
+	color: #0078AC;
 	cursor: pointer;
 }
 
@@ -55,4 +56,10 @@ body {
 
 .box--half {
 	flex-basis: calc(50% - 2 * 0.5rem);
+}
+
+.wi {
+	color: #0078AC;
+	font-size: 4em;
+	margin-bottom: 0.5rem;
 }

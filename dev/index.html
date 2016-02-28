@@ -30,7 +30,7 @@
 				City: {{ info.name }}
 			</p>
 			<p class="box">
-				<img src="{{ '//openweathermap.org/img/w/' + info.weather[0].icon }}.png" alt="Weather icon" />
+				<i class="wi wi-owm-{{ info.weather[0].id }}"></i>
 				<br>
 				Description: {{ info.weather[0].main }}
 			</p>
@@ -66,13 +66,16 @@
 		</p>
     </footer>
 
-	<!-- CSS -->
-    <link rel="stylesheet" href="css/main.css">
-	<link href='//fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
 
 	<!-- JS -->
 	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.19.1/ramda.min.js"></script> -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="js/main.js"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/main.css">
+	<link href='//fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/weather-icons.min.css">
+
 </body>
 </html>

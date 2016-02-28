@@ -30,9 +30,12 @@
 				Description: {{ info.weather[0].main }}
 			</p>
 			<p>
-				Temperature: {{ info.main.temp }} <sup>o</sup>C
-				<button type="button" ng-click="">
-					To Fahrenheit
+				Temperature: {{ info.main.temp }}
+				<sup>o</sup><span ng-show="tempInCelsius">C</span><span ng-hide="tempInCelsius">F</span>
+				<button type="button" ng-click="toggleTempUnit()">
+					To
+					<span ng-show="tempInCelsius">Fahrenheit</span>
+					<span ng-hide="tempInCelsius">Celsius</span>
 				</button> <br>
 			</p>
 			<p>
@@ -49,12 +52,15 @@
     </section>
 
     <footer>
-        Wiktor Czajkowski &copy; 2016. All rights reserved.
+        <p>Wiktor Czajkowski &copy; 2016. All rights reserved.</p>
+		<p class="italic">
+			* Retrieved data is not stored nor used to track the user.
+		</p>
     </footer>
 
 	<!-- CSS -->
     <link rel="stylesheet" href="css/main.css">
-	<link href='//fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
 
 	<!-- JS -->
 	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.19.1/ramda.min.js"></script> -->

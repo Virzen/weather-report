@@ -3,6 +3,11 @@
 
 	const app = angular.module('app', []);
 
+	const toDecimalPlaces = function (number, places) {
+		const order = Math.pow(10, places);
+		return Math.trunc(number * order) / order;
+	};
+
 
 	app.factory('position', function () {
 		return {
@@ -49,23 +54,43 @@
 
 	app.controller('MainCtrl', ['$scope', 'position', 'weather', function ($scope, position, weather) {
 		let coords;
+		$scope.tempInCelsius = true;
 		$scope.info;
-		$scope.message = `Please allow for geolocation detection.
-		Retrieved data is not stored nor used to track you.`;
+		$scope.message = `Waiting for geolocation data...*`;
 
-		position.get(position => {
-			$scope.message = `Retrieving weather data...`;
-			coords = position.coords;
+		try {
+			position.get(position => {
+				$scope.message = `Retrieving weather data...`;
+				coords = position.coords;
 
-			weather.get(coords)
-				.success((data, status) => {
-					$scope.message = ``;
-					$scope.info = data;
-				})
-				.error((data, status) => {
-					throw new Error('Request status:', status);
-				});
-		});
+				weather.get(coords)
+					.success((data, status) => {
+						$scope.message = ``;
+						$scope.info = data;
+					})
+					.error((data, status) => {
+						throw new Error('Request status:', status);
+					});
+			});
+		} catch (err) {
+			$scope.message = `Your browser doesn't support geolocation, which is required for the application to work.
+			Please make sure you're using the latest version of your browser.`;
+		}
+
+		$scope.toggleTempUnit = function toggleTempUnit() {
+			const temp = $scope.info.main.temp;
+			if (temp) {
+				if ($scope.tempInCelsius) {
+					$scope.info.main.temp = toDecimalPlaces(temp * 1.8 + 32, 2);
+				} else {
+					$scope.info.main.temp = toDecimalPlaces((temp - 32) / 1.8, 2);
+				}
+
+				$scope.tempInCelsius = !$scope.tempInCelsius;
+			} else {
+				throw new Error('No temperature data available.');
+			}
+		};
 	}]);
 	//
 	// app.directive('superButton', function () {

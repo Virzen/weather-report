@@ -1,1 +1,16 @@
 // main: ../main.scss
+$spacings: (
+    'microscopic': 0.2rem,
+    'tiny': 0.5rem,
+    'small': 1rem,
+    'medium': 2rem,
+);
+
+$colors: (
+    'primary': #263238,
+    'secondary': #607d8b,
+    'bg-primary': #F5F5F5,
+    'bg-secondary': white,
+    'text-bright': white,
+    'text-dark': #263238,
+);

@@ -1,6 +1,4 @@
 // compileExpanded: ../css/$1.css
-/* Only imports here */
-
 /* utils */
 @import 'utils/variables';
 @import 'utils/functions';
@@ -21,7 +19,3 @@
 /* modules */
 @import 'modules/button';
 @import 'modules/box';
-
-/* pages */
-
-/* themes */

@@ -19,6 +19,9 @@
     </header>
 
     <section ng-controller="MainCtrl">
+		<p class="msg-box" ng-cloak ng-show="message">
+			{{ message }}
+		</p>
 		<div ng-show="info" ng-cloak>
 			<p>
 				Coordinates: {{ info.coord.lon }}, {{ info.coord.lat }} | City: {{ info.name }}
@@ -51,6 +54,7 @@
 
 	<!-- CSS -->
     <link rel="stylesheet" href="css/main.css">
+	<link href='//fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
 	<!-- JS -->
 	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.19.1/ramda.min.js"></script> -->

@@ -50,13 +50,16 @@
 	app.controller('MainCtrl', ['$scope', 'position', 'weather', function ($scope, position, weather) {
 		let coords;
 		$scope.info;
-		$scope.message = 'Loading...';
+		$scope.message = `Please allow for geolocation detection.
+		Retrieved data is not stored nor used to track you.`;
 
 		position.get(position => {
+			$scope.message = `Retrieving weather data...`;
 			coords = position.coords;
 
 			weather.get(coords)
 				.success((data, status) => {
+					$scope.message = ``;
 					$scope.info = data;
 				})
 				.error((data, status) => {

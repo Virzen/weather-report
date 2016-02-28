@@ -30,6 +30,8 @@
 				City: {{ info.name }}
 			</p>
 			<p class="box">
+				<img src="{{ '//openweathermap.org/img/w/' + info.weather[0].icon }}.png" alt="Weather icon" />
+				<br>
 				Description: {{ info.weather[0].main }}
 			</p>
 			<p class="box">

@@ -2,3 +2,10 @@
 * {
     box-sizing: border-box;
 }
+
+body {
+	max-width: 30em;
+	margin: 0 auto;
+	text-align: center;
+	background-color: color('3');
+}

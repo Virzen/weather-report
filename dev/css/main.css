@@ -1086,6 +1086,10 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
+.italic {
+	font-style: italic;
+}
+
 /* layout */
 .primary-footer::before {
 	content: '';
@@ -1094,10 +1098,18 @@ body {
 }
 
 /* modules */
+.button {
+	padding: 0.5rem;
+	margin-top: 0.5rem;
+	border: 1px solid #0078AC;
+	border-radius: 0.5em;
+	cursor: pointer;
+}
+
 .box {
-	flex-grow: 1;
+	flex-basis: 100%;
 	padding: 1rem;
-	margin: 1rem;
+	margin: 0.5rem;
 	color: #0A465F;
 	background-color: #F3F2E7;
 	border-radius: 0.5em;
@@ -1106,6 +1118,12 @@ body {
 
 .box__container {
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.box--half {
+	flex-basis: calc(50% - 2 * 0.5rem);
 }
 
 /* pages */

@@ -56,5 +56,5 @@ node_modules/
 
 # Distribution directory #
 ################
-#prod/
-#dist/
+prod/
+dist/

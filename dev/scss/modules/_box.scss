@@ -1,0 +1,18 @@
+// main: ../main.scss
+.box {
+	flex-grow: 1;
+	padding: spacing('small');
+	margin: spacing('small');
+	color: color('dark-text');
+	background-color: color('bright-text');
+	@include border-radius;
+	@include box-shadow;
+
+	&__container {
+		display: flex;
+	}
+
+	&--half {
+
+	}
+}

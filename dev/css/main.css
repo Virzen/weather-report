@@ -1074,7 +1074,39 @@
 	box-sizing: border-box;
 }
 
+body {
+	max-width: 30em;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #0078AC;
+}
+
+body {
+	color: #F3F2E7;
+	font-family: 'Lato', sans-serif;
+}
+
 /* layout */
+.primary-footer::before {
+	content: '';
+	display: table;
+	clear: both;
+}
+
 /* modules */
+.box {
+	flex-grow: 1;
+	padding: 1rem;
+	margin: 1rem;
+	color: #0A465F;
+	background-color: #F3F2E7;
+	border-radius: 0.5em;
+	box-shadow: 0 0 0.2em #F3F2E7;
+}
+
+.box__container {
+	display: flex;
+}
+
 /* pages */
 /* themes */

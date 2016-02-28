@@ -14,44 +14,45 @@
 	</style>
 </head>
 <body ng-app="app">
-    <header>
+    <header class="primary-header">
         <h1>Weather Report</h1>
     </header>
 
-    <section ng-controller="MainCtrl">
-		<p class="msg-box" ng-cloak ng-show="message">
+    <section class="box__container" ng-controller="MainCtrl">
+		<p class="box" ng-cloak ng-show="message">
 			{{ message }}
 		</p>
 		<div ng-show="info" ng-cloak>
-			<p>
+			<p class="box">
 				Coordinates: {{ info.coord.lon }}, {{ info.coord.lat }} | City: {{ info.name }}
 			</p>
-			<p>
+			<p class="box">
 				Description: {{ info.weather[0].main }}
 			</p>
-			<p>
+			<p class="box box--half">
 				Temperature: {{ info.main.temp }}
 				<sup>o</sup><span ng-show="tempInCelsius">C</span><span ng-hide="tempInCelsius">F</span>
+				<br>
 				<button type="button" ng-click="toggleTempUnit()">
 					To
 					<span ng-show="tempInCelsius">Fahrenheit</span>
 					<span ng-hide="tempInCelsius">Celsius</span>
-				</button> <br>
+				</button>
 			</p>
-			<p>
+			<p class="box box--half">
 				Pressure: {{ info.main.pressure }} hPa <br>
 				Humidity: {{ info.main.humidity }} % <br>
 			</p>
-			<p>
+			<p class="box box--half">
 				Wind speed: {{ info.wind.speed }} m/s
 			</p>
-			<p>
+			<p class="box box--half">
 				Cloudiness: {{ info.clouds.all }} %
 			</p>
 		</div>
     </section>
 
-    <footer>
+    <footer class="primary-footer">
         <p>Wiktor Czajkowski &copy; 2016. All rights reserved.</p>
 		<p class="italic">
 			* Retrieved data is not stored nor used to track the user.

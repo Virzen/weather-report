@@ -4,6 +4,7 @@
 /* utils */
 @import 'utils/variables';
 @import 'utils/functions';
+@import 'utils/mixins';
 
 /* vendors */
 @import 'vendors/bootstrap-grid';
@@ -15,12 +16,11 @@
 
 /* layout */
 @import 'layout/header';
-@import 'layout/nav';
-@import 'layout/section';
+@import 'layout/footer';
 
 /* modules */
 @import 'modules/button';
-@import 'modules/msg';
+@import 'modules/box';
 
 /* pages */
 

@@ -1,6 +1,7 @@
 // main: ../main.scss
 .box {
 	flex-basis: 100%;
+	flex-grow: 1;
 	padding: spacing('small');
 	margin: spacing('tiny');
 	color: color('secondary-dark');

@@ -1108,6 +1108,7 @@ body {
 
 .box {
 	flex-basis: 100%;
+	flex-grow: 1;
 	padding: 1rem;
 	margin: 0.5rem;
 	color: #0A465F;

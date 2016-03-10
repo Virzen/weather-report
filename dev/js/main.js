@@ -92,21 +92,5 @@
 			}
 		};
 	}]);
-	//
-	// app.directive('superButton', function () {
-	// 	return {
-	// 		restrict: 'A',
-	// 		replace: true,
-	// 		transclude: true,
-	// 		template: `	<button type="button" class="super-button" ng-transclude>
-	// 						Stuff
-	// 					</button>`,
-	// 		link: function (scope, element, attrs) {
-	// 			// DOM manipulation/events
-	// 		}
-	// 	};
-	// });
-
-
 }(angular));
 /*global angular*/

@@ -3,6 +3,13 @@
 
 	const app = angular.module('app', []);
 
+	/**
+	 * Converts number to fixed length after decimal point.
+	 * 
+	 * @param {Number} number
+	 * @param {Number} places
+	 * @return {Number}
+	 */
 	const toDecimalPlaces = function (number, places) {
 		const order = Math.pow(10, places);
 		return Math.trunc(number * order) / order;
@@ -17,6 +24,8 @@
 			 * Doesn't return, takes callback, which is run with position
 			 * object.
 			 * https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
+			 * 
+			 * @param {Funcion} callback
 			 */
 			get(callback) {
 				if (navigator.geolocation) {
@@ -36,7 +45,7 @@
 		 * Calls to Open Weather API with given coords.
 		 * `coords` is an object with `latitude` and `longitude` properties.
 		 *
-		 * @return Angular promise
+		 * @return {Angular promise}
 		 */
 		return {
 			get(coords) {
@@ -77,6 +86,9 @@
 			Please make sure you're using the latest version of your browser.`;
 		}
 
+		/**
+		 * Toggles temperature between Celsius and Fahrenheit units.
+		 */
 		$scope.toggleTempUnit = function toggleTempUnit() {
 			const temp = $scope.info.main.temp;
 			if (temp) {

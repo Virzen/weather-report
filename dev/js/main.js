@@ -25,7 +25,7 @@
 			 * object.
 			 * https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
 			 * 
-			 * @param {Funcion} callback
+			 * @param {Function} callback
 			 */
 			get(callback) {
 				if (navigator.geolocation) {

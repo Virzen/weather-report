@@ -91,7 +91,7 @@
 		 */
 		$scope.toggleTempUnit = function toggleTempUnit() {
 			const temp = $scope.info.main.temp;
-			if (temp) {
+			if (typeof temp !== 'number') {
 				if ($scope.tempInCelsius) {
 					$scope.info.main.temp = toDecimalPlaces(temp * 1.8 + 32, 2);
 				} else {
